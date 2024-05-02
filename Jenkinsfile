@@ -20,6 +20,7 @@ pipeline {
                                                     bat 'docker rm demo-container'
                                                 }
                                            }
+
                                 }
 
         stage('Build docker image'){
@@ -32,7 +33,7 @@ pipeline {
         stage('Push image to Hub'){
             steps{
                 script{
-                    docker.image("demo12:${env.BUILD_NUMBER}").run("-d -p 8080:8080 --name demo-container")
+                    docker.image("demo12:${env.BUILD_NUMBER}").run("-d -p 4444:8080 --name demo-container")
                 }
             }
   }
